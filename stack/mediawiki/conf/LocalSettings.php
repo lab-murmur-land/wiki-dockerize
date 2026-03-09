@@ -195,7 +195,7 @@ $wgPluggableAuth_Config = [
         "plugin" => "Auth42",
         "data" => [
             "ClientID"     => "u-s4t2ud-3439ca88deb81572dd171c078282b6d0555606c252c69dd97b85d7970e27f6ed",
-            "ClientSecret" => "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",
+            "ClientSecret" => getenv('AUTH42_CLIENT_SECRET'),
             "RedirectURI"  => "http://" . getenv('HOST_IP') . ":8080/wiki/Special:PluggableAuthLogin"
         ]
     ]
