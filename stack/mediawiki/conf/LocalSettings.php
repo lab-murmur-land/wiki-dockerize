@@ -201,18 +201,23 @@ $wgPluggableAuth_Config = [
     ]
 ];
 $wgDebugLogFile = "/tmp/wiki-debug.log";
-$wgDebugLogGroups['Auth42'] = '/tmp/auth42-debug.log';
 $wgPluggableAuth_EnableLocalLogin = true;
 
-# Auth42: Kullanıcı sayfalarında 42 Intra avatarlarının gösterilmesi için
-$wgAllowImageTag = true;
-$wgAllowExternalImagesFrom = [ 'https://cdn.intra.42.fr/' ];
 
+# Auth42: Kullanıcı sayfalarında 42 Intra avatarlarının gösterilmesi için
+// $wgAllowImageTag = true;
+// $wgAllowExternalImagesFrom = [ 'https://cdn.intra.42.fr/' ];
 
 wfLoadExtension('ConfirmAccount');
 $wgSessionCacheType = CACHE_DB; // Avoids stale session state across requests.
 # Normal kayıt kapalı
 $wgGroupPermissions['*']['createaccount'] = false;
+
+# PluggableAuth (42 OAuth) ile otomatik hesap oluşturmaya izin ver
+$wgGroupPermissions['*']['autocreateaccount'] = true;
+# ConfirmAccount'un auto-create'i engellemesini önle
+$wgConfirmAccountAutoCreate = true;
+$wgAutoCreateTempUser['enabled'] = false;
 
 # Sadece adminler onaylayabilir
 $wgGroupPermissions['sysop']['createaccount'] = true;

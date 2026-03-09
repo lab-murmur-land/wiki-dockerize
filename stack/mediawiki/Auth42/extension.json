@@ -13,9 +13,6 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Auth42\\": "includes/"
 	},
-	"Hooks": {
-		"UserLoginComplete": "MediaWiki\\Extension\\Auth42\\Auth42::onUserLoginComplete"
-	},
 	"attributes": {
 		"PluggableAuth": {
 			"Auth42": {

@@ -16,5 +16,4 @@ shell_wiki:
 restart: down up
 reload: build up
 
-# re-build:
-# 	docker-compose -f stack/docker-compose.yml build --no-cache
+reinstall: clean init
