@@ -105,7 +105,33 @@
                     "reference": "REL1_45"
                 }
             }
-        }
+        },
+		{
+			"type": "package",
+			"package": {
+				"name": "mediawiki/pluggable-auth",
+				"version": "1.45.0",
+				"type": "mediawiki-extension",
+				"source": {
+					"url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/PluggableAuth",
+					"type": "git",
+					"reference": "REL1_45"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "mediawiki/confirm-account",
+				"version": "1.45.0",
+				"type": "mediawiki-extension",
+				"source": {
+					"url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/ConfirmAccount",
+					"type": "git",
+					"reference": "REL1_45"
+				}
+			}
+		}
     ],
     "require": {
         "mediawiki/mobile-frontend": "1.45.0",
@@ -115,7 +141,9 @@
         "mediawiki/vector-skin": "1.45.0",
         "mediawiki/code-editor": "1.45.0",
         "mediawiki/visual-editor": "1.45.0",
-        "mediawiki/wiki-editor": "1.45.0"
+        "mediawiki/wiki-editor": "1.45.0",
+		"mediawiki/pluggable-auth": "1.45.0",
+		"mediawiki/confirm-account": "1.45.0"
     },
     "extra": {
         "merge-plugin": {

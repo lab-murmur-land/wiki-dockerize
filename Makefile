@@ -3,7 +3,7 @@ up:
 down:
 	docker-compose -f stack/docker-compose.yml down
 build:
-	docker-compose -f stack/docker-compose.yml build --progress=auto
+	docker-compose -f stack/docker-compose.yml build --progress=plain
 clean:
 	docker-compose -f stack/docker-compose.yml down --volumes --remove-orphans
 init: up

@@ -1,0 +1,27 @@
+{
+	"name": "Auth42",
+	"version": "1.0.0",
+	"author": ["You"],
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.45.0",
+		"extensions": {
+			"PluggableAuth": "*"
+		}
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Auth42\\": "includes/"
+	},
+	"Hooks": {
+		"UserLoginComplete": "MediaWiki\\Extension\\Auth42\\Auth42::onUserLoginComplete"
+	},
+	"attributes": {
+		"PluggableAuth": {
+			"Auth42": {
+				"class": "MediaWiki\\Extension\\Auth42\\Auth42"
+			}
+		}
+	},
+	"manifest_version": 2
+}

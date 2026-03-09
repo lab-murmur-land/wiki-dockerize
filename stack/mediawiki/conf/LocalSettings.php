@@ -15,6 +15,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
+$hostip = getenv('HOST_IP');
+
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
@@ -31,7 +33,7 @@ $wgScriptPath = "";
 $wgArticlePath = "/wiki/$1";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost:8080";
+$wgServer = "http://" . getenv('HOST_IP') . ":8080";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -128,7 +130,6 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png";
 $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
-$wgGroupPermissions["*"]["createaccount"] = true;
 $wgGroupPermissions["*"]["edit"] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
@@ -161,13 +162,6 @@ $loadExtensionIfPresent = static function ( string $name ) use ( $IP ) : void {
 	}
 };
 
-# Enabled skins.
-# The following skins were automatically enabled:
-$loadSkinIfPresent( 'MinervaNeue' );
-$loadSkinIfPresent( 'MonoBook' );
-$loadSkinIfPresent( 'Timeless' );
-$loadSkinIfPresent( 'Vector' );
-
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtension( 'ExtensionName' );
 # to LocalSettings.php. Check specific extension documentation for more details.
@@ -178,7 +172,57 @@ $loadExtensionIfPresent( 'WikiEditor' );
 $loadExtensionIfPresent( 'MobileFrontend' );
 $loadExtensionIfPresent( 'GlobalPreferences' );
 
+// wfLoadExtension( 'VisualEditor' ); 
 
 # End of automatically generated settings.
 # Add more configuration options below.
 $wgShowExceptionDetails = true;
+# VisualEditor Ayarları
+// $wgDefaultUserOptions['visualeditor-enable'] = 1;
+$wgDefaultUserOptions['visualeditor-editor'] = 'visualeditor';
+$wgVirtualRestConfig['modules']['parsoid'] = [
+    'url' => $wgServer . $wgScriptPath . '/rest.php',
+];
+$wgVisualEditorNamespaces = [ NS_MAIN, NS_USER, NS_PROJECT ];
+$wgResourceLoaderValidateStaticJS = false;
+
+
+wfLoadExtension('PluggableAuth');
+wfLoadExtension('Auth42');
+
+$wgPluggableAuth_Config = [
+    "42 ile Giriş" => [
+        "plugin" => "Auth42",
+        "data" => [
+            "ClientID"     => "u-s4t2ud-3439ca88deb81572dd171c078282b6d0555606c252c69dd97b85d7970e27f6ed",
+            "ClientSecret" => "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",
+            "RedirectURI"  => "http://" . getenv('HOST_IP') . ":8080/wiki/Special:PluggableAuthLogin"
+        ]
+    ]
+];
+$wgDebugLogFile = "/tmp/wiki-debug.log";
+$wgDebugLogGroups['Auth42'] = '/tmp/auth42-debug.log';
+$wgPluggableAuth_EnableLocalLogin = true;
+
+# Auth42: Kullanıcı sayfalarında 42 Intra avatarlarının gösterilmesi için
+$wgAllowImageTag = true;
+$wgAllowExternalImagesFrom = [ 'https://cdn.intra.42.fr/' ];
+
+
+wfLoadExtension('ConfirmAccount');
+$wgSessionCacheType = CACHE_DB; // Avoids stale session state across requests.
+# Normal kayıt kapalı
+$wgGroupPermissions['*']['createaccount'] = false;
+
+# Sadece adminler onaylayabilir
+$wgGroupPermissions['sysop']['createaccount'] = true;
+ $wgConfirmAccountRequestFormItems = [
+ 	'UserName'        => [ 'enabled' => true ],
+ 	'RealName'        => [ 'enabled' => false ],
+ 	'Biography'       => [ 'enabled' => false, 'minWords' => 50 ],
+ 	'AreasOfInterest' => [ 'enabled' => false ],
+ 	'CV'              => [ 'enabled' => false ],
+ 	'Notes'           => [ 'enabled' => true ],
+ 	'Links'           => [ 'enabled' => false ],
+ 	'TermsOfService'  => [ 'enabled' => true ],
+ ];
