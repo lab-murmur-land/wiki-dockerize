@@ -1,0 +1,128 @@
+{
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/mobile-frontend",
+                "version": "1.45.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/minerva-neue-skin",
+                "version": "1.45.0",
+                "type": "mediawiki-skin",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/monobook-skin",
+                "version": "1.45.0",
+                "type": "mediawiki-skin",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/skins/MonoBook",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/timeless-skin",
+                "version": "1.45.0",
+                "type": "mediawiki-skin",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/skins/Timeless",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/vector-skin",
+                "version": "1.45.0",
+                "type": "mediawiki-skin",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/skins/Vector",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/code-editor",
+                "version": "1.45.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeEditor",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/visual-editor",
+                "version": "1.45.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/VisualEditor",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/wiki-editor",
+                "version": "1.45.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiEditor",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        }
+    ],
+    "require": {
+        "mediawiki/mobile-frontend": "1.45.0",
+        "mediawiki/minerva-neue-skin": "1.45.0",
+        "mediawiki/monobook-skin": "1.45.0",
+        "mediawiki/timeless-skin": "1.45.0",
+        "mediawiki/vector-skin": "1.45.0",
+        "mediawiki/code-editor": "1.45.0",
+        "mediawiki/visual-editor": "1.45.0",
+        "mediawiki/wiki-editor": "1.45.0"
+    },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "extensions/*/composer.json",
+                "skins/*/composer.json"
+            ]
+        }
+    }
+}
