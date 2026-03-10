@@ -1,4 +1,4 @@
-version: '3'
+name: ${COMPOSE_PROJECT_NAME}
 services:
   mediawiki:
     build: ./mediawiki
@@ -14,6 +14,7 @@ services:
       # - /var/www/test:/var/www/html
       # - /var/www/wiki.murmur.land/:/var/www/html
       - images:/var/www/html/images
+      - vendor:/var/www/html/vendor
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
@@ -42,12 +43,16 @@ services:
 #     driver: bridge
 
 volumes:
-  images:
   db:
-  # mw:
-  #   name: "mv"
-  #   driver: local
-  #   driver_opts:
-  #     type: 'none'
-  #     o: 'bind'
-  #     device: /var/www/wiki.murmur.land/
+  images:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ./images
+  vendor:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /tmp/${COMPOSE_PROJECT_NAME}_vendor

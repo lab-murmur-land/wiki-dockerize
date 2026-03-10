@@ -28,9 +28,11 @@ $wgMetaNamespace = "Murmurpedia";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
+$wgScript = "/index.php";
 $wgScriptPath = "";
 ## Makale yolu (Tarayıcıda görünen yer)
 $wgArticlePath = "/wiki/$1";
+// $wgUsePathInfo = true;
 
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer = "http://" . getenv('HOST_IP') . ":8080";
@@ -41,11 +43,11 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [
-	'1x' => "$wgResourceBasePath/images/logo_murmur.svg",
-	'icon' => "$wgResourceBasePath/images/logo_murmur.svg",
+	'1x' => "$wgResourceBasePath/images/logo_murmur.png",
+	'icon' => "$wgResourceBasePath/images/logo_murmur.png",
 ];
 $wgFavicon = $wgScriptPath . "/images/favicon_murmur.ico";
-$wgFavicon = $wgScriptPath . "/images/logo_murmur.svg";
+// $wgFavicon = $wgScriptPath . "/images/logo_murmur.svg";
 
 ## UPO means: this is also a user preference option
 
@@ -109,7 +111,7 @@ $wgLocaltimezone = "UTC";
 #$wgCacheDirectory = "$IP/cache";
 
 // $wgSecretKey = "68cda1575db0d2269d06dda49bc29bff765b62249d4aa724cee4ebdcbf322efa";
-$wgSecretKey = "f655b373954e326aa78a1e271e41023df7df4f991277e7e61e046bbc24701165";
+$wgSecretKey = getenv('MEDIAWIKI_SECRET_KEY');
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
@@ -132,20 +134,16 @@ $wgDiff3 = "/usr/bin/diff3";
 # The following permissions were set based on your choice in the installer
 $wgGroupPermissions["*"]["edit"] = false;
 
-## Default skin: you can change the default skin. Use the internal symbolic
-## names, e.g. 'vector' or 'monobook':
-$wgDefaultSkin = "vector";
-$wgDefaultMobileSkin = 'minerva';
-
-$wgDefaultSkin = "vector";
-
 # Enabled skins.
 # The following skins were automatically enabled:
+$wgDefaultSkin = "vector-2022";
+$wgVectorResponsive = true;
+$wgDefaultMobileSkin = 'minerva';
+
 wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
-
 
 // Safe loader helpers to avoid fatal errors when optional packages are not present.
 $loadSkinIfPresent = static function ( string $name ) use ( $IP ) : void {
@@ -231,3 +229,8 @@ $wgGroupPermissions['sysop']['createaccount'] = true;
  	'Links'           => [ 'enabled' => false ],
  	'TermsOfService'  => [ 'enabled' => true ],
  ];
+
+
+require_once "$IP/custom_settings/Namespaces.php";
+require_once "$IP/custom_settings/Permissions.php";
+// require_once "$IP/custom_settings/ExtensionSettings.php";

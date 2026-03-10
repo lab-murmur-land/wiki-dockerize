@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Load config
+set -a
+source config.env
+set +a
+
+COMPOSE="docker-compose -f stack/docker-compose.yml"
+
+maintaince-init-db(){
+	$COMPOSE exec mediawiki /tmp/maintaince.bash init-db AdminKullaniciAdin AdminSifren123
+}
+maintaince-composer-install(){
+	$COMPOSE exec mediawiki /tmp/maintaince.bash composer-install
+
+}
+down-volumes(){
+	$COMPOSE down --volumes --remove-orphans
+}
+
+up(){
+	$COMPOSE up --wait
+}
+
+cmd="${1:-help}"
+shift || true
+case "$cmd" in
+  up)
+    up
+    ;;
+  down)
+    $COMPOSE down
+    ;;
+  build)
+    $COMPOSE build --progress=plain "$@"
+    ;;
+  clean)
+    down-volumes
+    ;;
+  init)
+	maintaince-init-db; maintaince-composer-install; up
+    ;;
+  logs)
+    $COMPOSE logs -f
+    ;;
+  wiki_sh)
+    $COMPOSE exec -it mediawiki bash
+    ;;
+  wiki_cli)
+    $COMPOSE exec mediawiki /tmp/maintaince.bash "$@"
+    ;;
+  restart)
+    $COMPOSE down
+    up
+    ;;
+  reload)
+    $COMPOSE build --progress=plain "$@"
+    up
+    ;;
+  reinstall)
+    down-volumes
+    up
+    $COMPOSE exec mediawiki /tmp/init.bash
+    ;;
+  dev-init)
+    mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_vendor"
+    ;;
+  __dbg)
+    echo "COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME}"
+    ;;
+  help|*)
+    echo "Usage: $0 {up|down|build|clean|init|logs|shell_wiki|wiki|restart|reload|reinstall|dev-init|__dbg}"
+    ;;
+esac
