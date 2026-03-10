@@ -50,7 +50,7 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: ./images
+      device: /tmp/${COMPOSE_PROJECT_NAME}_images
   vendor:
     driver: local
     driver_opts:

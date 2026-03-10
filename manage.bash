@@ -69,11 +69,16 @@ case "$cmd" in
   dev-init)
     mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_vendor"
 	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_extensions"
+	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_images"
+	cp -r ./stack/images/* "/tmp/${COMPOSE_PROJECT_NAME}_images/"
+	;;
+	fix-images-permissions)
+		$COMPOSE exec mediawiki chown -R www-data:www-data /var/www/html/images
     ;;
   __dbg)
     echo "COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME}"
     ;;
   help|*)
-    echo "Usage: $0 {up|down|build|clean|init|logs|shell_wiki|wiki|restart|reload|reinstall|dev-init|__dbg}"
+    echo "Usage: $0 {up|down|build|clean|init|logs|wiki_sh|wiki_cli|restart|reload|reinstall|compose|dev-init|fix-images-permissions|__dbg}"
     ;;
 esac
