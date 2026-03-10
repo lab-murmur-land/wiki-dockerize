@@ -39,7 +39,7 @@ case "$cmd" in
     down-volumes
     ;;
   init)
-	maintaince-init-db; maintaince-composer-install; up
+	maintaince-composer-install; maintaince-init-db;
     ;;
   logs)
     $COMPOSE logs -f
@@ -63,8 +63,12 @@ case "$cmd" in
     up
     $COMPOSE exec mediawiki /tmp/init.bash
     ;;
+	compose)
+	$COMPOSE "$@"
+	;;
   dev-init)
     mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_vendor"
+	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_extensions"
     ;;
   __dbg)
     echo "COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME}"

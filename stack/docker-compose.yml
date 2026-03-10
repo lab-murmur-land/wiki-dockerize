@@ -15,6 +15,7 @@ services:
       # - /var/www/wiki.murmur.land/:/var/www/html
       - images:/var/www/html/images
       - vendor:/var/www/html/vendor
+      - extensions:/var/www/html/extensions
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
@@ -56,3 +57,9 @@ volumes:
       type: 'none'
       o: 'bind'
       device: /tmp/${COMPOSE_PROJECT_NAME}_vendor
+  extensions:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /tmp/${COMPOSE_PROJECT_NAME}_extensions

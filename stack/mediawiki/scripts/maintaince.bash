@@ -12,7 +12,7 @@ init_db(){
 case "$cmd" in
   composer-install)
     COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-security-blocking --no-interaction -o
-    cd /var/www/html/extensions/VisualEditor && git submodule update --init --recursive
+    # cd /var/www/html/extensions/VisualEditor && git submodule update --init --recursive # why not needed in container?
     ;;
 	init-db)
 		init_db "$@"
