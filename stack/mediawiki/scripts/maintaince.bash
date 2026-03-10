@@ -9,6 +9,14 @@ init_db(){
 	php maintenance/run.php createAndPromote --sysop --bureaucrat "$1" "$2"
 }
 
+update_db(){
+	php /var/www/html/maintenance/run.php update --quick
+}
+
+run_php(){
+	php /var/www/html/maintenance/run.php "$@"
+}
+
 case "$cmd" in
   composer-install)
     COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-security-blocking --no-interaction -o
@@ -17,7 +25,13 @@ case "$cmd" in
 	init-db)
 		init_db "$@"
 	;;
+	update-db)
+		update_db "$@"
+	;;
+	run-php)
+		run_php "$@"
+	;;
   help|*)
-    echo "Usage: $0 {composer-install|init-db <AdminUsername> <AdminPassword>}"
+    echo "Usage: $0 {composer-install|init-db <AdminUsername> <AdminPassword>|update-db|run-php <MaintenanceScript> [args...]|help}"
     ;;
 esac

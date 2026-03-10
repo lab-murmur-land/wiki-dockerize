@@ -131,8 +131,11 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png";
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
 
-# The following permissions were set based on your choice in the installer
-$wgGroupPermissions["*"]["edit"] = false;
+
+# Giriş yapmış kullanıcılar → edit yok
+// $wgGroupPermissions['user']['edit'] = false;
+// $wgGroupPermissions['user']['createpage'] = false;
+
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -187,6 +190,8 @@ $wgResourceLoaderValidateStaticJS = false;
 
 wfLoadExtension('PluggableAuth');
 wfLoadExtension('Auth42');
+// wfLoadExtension('FlaggedRevs');
+wfLoadExtension('ApprovedRevs');
 
 $wgPluggableAuth_Config = [
     "42 ile Giriş" => [
@@ -229,7 +234,6 @@ $wgGroupPermissions['sysop']['createaccount'] = true;
  	'Links'           => [ 'enabled' => false ],
  	'TermsOfService'  => [ 'enabled' => true ],
  ];
-
 
 require_once "$IP/custom_settings/Namespaces.php";
 require_once "$IP/custom_settings/Permissions.php";

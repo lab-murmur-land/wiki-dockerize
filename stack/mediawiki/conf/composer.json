@@ -143,8 +143,9 @@
         "mediawiki/visual-editor": "1.45.0",
         "mediawiki/wiki-editor": "1.45.0",
 		"mediawiki/pluggable-auth": "1.45.0",
-		"mediawiki/confirm-account": "1.45.0"
-    },
+		"mediawiki/confirm-account": "1.45.0",
+		"mediawiki/approved-revs": "*"
+	},
     "extra": {
         "merge-plugin": {
             "include": [
