@@ -16,6 +16,7 @@ services:
       - images:/var/www/html/images
       - vendor:/var/www/html/vendor
       - extensions:/var/www/html/extensions
+      - composer_cache:/root/.composer/cache
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
@@ -45,6 +46,11 @@ services:
 
 volumes:
   db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /tmp/${COMPOSE_PROJECT_NAME}_db
   images:
     driver: local
     driver_opts:
@@ -63,3 +69,9 @@ volumes:
       type: 'none'
       o: 'bind'
       device: /tmp/${COMPOSE_PROJECT_NAME}_extensions
+  composer_cache:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /tmp/${COMPOSE_PROJECT_NAME}_composer_cache

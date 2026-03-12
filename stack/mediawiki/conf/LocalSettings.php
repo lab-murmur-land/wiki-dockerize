@@ -15,6 +15,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
+if ( defined( 'MEDIAWIKI_INSTALL' ) || PHP_SAPI === 'cli' ) {
+    $wgGroupPermissions['*']['skip-moderation'] = true;
+}
+
 $hostip = getenv('HOST_IP');
 
 ## Uncomment this to disable output compression
@@ -47,7 +51,6 @@ $wgLogos = [
 	'icon' => "$wgResourceBasePath/images/logo_murmur.png",
 ];
 $wgFavicon = $wgScriptPath . "/images/favicon_murmur.ico";
-// $wgFavicon = $wgScriptPath . "/images/logo_murmur.svg";
 
 ## UPO means: this is also a user preference option
 
@@ -192,6 +195,8 @@ wfLoadExtension('PluggableAuth');
 wfLoadExtension('Auth42');
 // wfLoadExtension('FlaggedRevs');
 wfLoadExtension('ApprovedRevs');
+wfLoadExtension('Moderation');
+wfLoadExtension('ConfirmAccount');
 
 $wgPluggableAuth_Config = [
     "42 ile Giriş" => [
@@ -211,19 +216,12 @@ $wgPluggableAuth_EnableLocalLogin = true;
 // $wgAllowImageTag = true;
 // $wgAllowExternalImagesFrom = [ 'https://cdn.intra.42.fr/' ];
 
-wfLoadExtension('ConfirmAccount');
 $wgSessionCacheType = CACHE_DB; // Avoids stale session state across requests.
-# Normal kayıt kapalı
-$wgGroupPermissions['*']['createaccount'] = false;
 
-# PluggableAuth (42 OAuth) ile otomatik hesap oluşturmaya izin ver
-$wgGroupPermissions['*']['autocreateaccount'] = true;
 # ConfirmAccount'un auto-create'i engellemesini önle
 $wgConfirmAccountAutoCreate = true;
 $wgAutoCreateTempUser['enabled'] = false;
 
-# Sadece adminler onaylayabilir
-$wgGroupPermissions['sysop']['createaccount'] = true;
  $wgConfirmAccountRequestFormItems = [
  	'UserName'        => [ 'enabled' => true ],
  	'RealName'        => [ 'enabled' => false ],

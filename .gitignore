@@ -1,3 +1,5 @@
 stack/images/logo_murmur.svg
 
 .env
+*.sql.gz
+*.sql
