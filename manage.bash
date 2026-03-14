@@ -43,7 +43,7 @@ dev_init(){
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_composer_cache"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_db"
-	cp -r ./stack/images/* "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images/"
+	sudo cp -r ./stack/images/* "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images/"
 }
 
 cmd="${1:-help}"
