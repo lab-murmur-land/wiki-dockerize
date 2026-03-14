@@ -3,7 +3,7 @@ services:
   mediawiki:
     build: ./mediawiki
     ports:
-      - 0.0.0.0:8080:80
+      - 0.0.0.0:4431:80
     restart: always
     links:
       - database

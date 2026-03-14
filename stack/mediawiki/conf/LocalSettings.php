@@ -39,7 +39,7 @@ $wgArticlePath = "/wiki/$1";
 // $wgUsePathInfo = true;
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://" . getenv('HOST_IP') . ":8080";
+$wgServer = "http://" . getenv('HOST_HOST') . "";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -204,7 +204,7 @@ $wgPluggableAuth_Config = [
         "data" => [
             "ClientID"     => "u-s4t2ud-3439ca88deb81572dd171c078282b6d0555606c252c69dd97b85d7970e27f6ed",
             "ClientSecret" => getenv('AUTH42_CLIENT_SECRET'),
-            "RedirectURI"  => "http://" . getenv('HOST_IP') . ":8080/wiki/Special:PluggableAuthLogin"
+            "RedirectURI"  => "https://" . getenv('HOST_HOST') . "/wiki/Special:PluggableAuthLogin"
         ]
     ]
 ];

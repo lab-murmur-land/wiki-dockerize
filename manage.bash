@@ -7,7 +7,7 @@ source config.env
 source .env
 set +a
 
-COMPOSE="docker-compose -f stack/docker-compose.yml"
+COMPOSE="docker compose -f stack/docker-compose.yml"
 
 maintaince-init-db(){
 	$COMPOSE exec mediawiki /tmp/maintaince.bash init-db $WIKI_ADMIN_USER $WIKI_ADMIN_PASSWORD
