@@ -145,6 +145,19 @@
                 }
             }
         },
+		{
+			"type": "package",
+			"package": {
+				"name": "mediawiki/syntax-highlight",
+				"version": "1.45.0",
+				"type": "mediawiki-extension",
+				"source": {
+					"url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/SyntaxHighlight_GeSHi",
+					"type": "git",
+					"reference": "REL1_45" 
+				}
+			}
+		},
         {
             "type": "package",
             "package": {
@@ -172,6 +185,7 @@
 		"mediawiki/confirm-account": "1.45.0",
 		"mediawiki/approved-revs": "*",
 		"mediawiki/flagged-revs": "1.45.0",
+		"mediawiki/syntax-highlight": "1.45.0",
 		"mediawiki/moderation": "dev-master"
 	},
     "extra": {

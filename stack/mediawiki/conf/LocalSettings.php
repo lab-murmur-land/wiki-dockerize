@@ -197,6 +197,7 @@ wfLoadExtension('Auth42');
 wfLoadExtension('ApprovedRevs');
 wfLoadExtension('Moderation');
 wfLoadExtension('ConfirmAccount');
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
 $wgPluggableAuth_Config = [
     "42 ile Giriş" => [

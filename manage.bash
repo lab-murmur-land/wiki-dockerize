@@ -7,6 +7,14 @@ source config.env
 source .env
 set +a
 
+if [ $DEV -eq 0 ]; then
+	DATA_DIR="/var/data/"
+else
+	DATA_DIR="/tmp/"
+fi
+
+export DATA_DIR
+
 COMPOSE="docker compose -f stack/docker-compose.yml"
 
 maintaince-init-db(){
@@ -29,12 +37,13 @@ up-wiki (){
 }
 
 dev_init(){
-	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_vendor"
-	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_extensions"
-	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_images"
-	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_composer_cache"
-	mkdir -p "/tmp/${COMPOSE_PROJECT_NAME}_db"
-	cp -r ./stack/images/* "/tmp/${COMPOSE_PROJECT_NAME}_images/"
+	sudo mkdir -p "$DATA_DIR"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_vendor"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_extensions"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_composer_cache"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_db"
+	cp -r ./stack/images/* "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images/"
 }
 
 cmd="${1:-help}"

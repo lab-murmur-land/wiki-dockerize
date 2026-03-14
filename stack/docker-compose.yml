@@ -50,28 +50,28 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /tmp/${COMPOSE_PROJECT_NAME}_db
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_db
   images:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /tmp/${COMPOSE_PROJECT_NAME}_images
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_images
   vendor:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /tmp/${COMPOSE_PROJECT_NAME}_vendor
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_vendor
   extensions:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /tmp/${COMPOSE_PROJECT_NAME}_extensions
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_extensions
   composer_cache:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /tmp/${COMPOSE_PROJECT_NAME}_composer_cache
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_composer_cache
