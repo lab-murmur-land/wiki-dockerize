@@ -22,6 +22,7 @@ case "$cmd" in
     COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-security-blocking --no-interaction -o
     cd /var/www/html/extensions/VisualEditor && git submodule update --init --recursive # why not needed in container?
 	chmod a+x /var/www/html/extensions/SyntaxHighlight_GeSHi/pygments/pygmentize
+	chmod +x /var/www/html/extensions/Scribunto/includes/Engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
     ;;
 	init-db)
 		init_db "$@"

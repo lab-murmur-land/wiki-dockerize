@@ -201,6 +201,18 @@ wfLoadExtension('Moderation');
 wfLoadExtension('ConfirmAccount');
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
+wfLoadExtension( 'Scribunto' );
+$wgScribuntoDefaultEngine = 'luastandalone';
+
+# Eğer sunucunuzda Lua binary dosyası farklı bir yerdeyse (isteğe bağlı)
+# $wgScribuntoEngineConf['luastandalone']['luaPath'] = '/usr/bin/lua';
+
+# CSS/JS gibi içeriklerin korunması ve renklendirilmesi için CodeEditor önerilir
+$wgScribuntoUseCodeEditor = true;
+# Performans için cache ayarı (opsiyonel)
+$wgScribuntoUseGeSHi = true;
+
+
 $wgPluggableAuth_Config = [
     "42 ile Giriş" => [
         "plugin" => "Auth42",
