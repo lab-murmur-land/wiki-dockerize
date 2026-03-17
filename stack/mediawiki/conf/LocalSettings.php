@@ -149,7 +149,7 @@ $wgDiff3 = "/usr/bin/diff3";
 // $wgDefaultSkin = "vector-2022";
 $wgDefaultSkin = 'citizen';
 $wgVectorResponsive = true;
-$wgDefaultMobileSkin = 'minerva';
+$wgDefaultMobileSkin = 'citizen';
 
 wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'MonoBook' );
