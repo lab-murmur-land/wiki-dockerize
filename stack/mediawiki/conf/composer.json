@@ -175,8 +175,11 @@
 			"type": "package",
 			"package": {
 				"name": "starcitizentools/citizen-skin",
-				"version": "v2.3.1", 
+				"version": "v2.3.1",
 				"type": "mediawiki-skin",
+				"extra": {
+					"installer-name": "Citizen"
+				},
 				"source": {
 					"url": "https://github.com/StarCitizenTools/mediawiki-skins-Citizen.git",
 					"type": "git",
