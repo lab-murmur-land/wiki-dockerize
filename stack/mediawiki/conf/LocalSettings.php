@@ -91,6 +91,10 @@ $wgMemCachedServers = [];
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads = true;
+$wgFileExtensions[] = 'svg';
+$wgAllowTitlesInSVG = true;
+$wgSVGConverter = 'ImageMagick'; // Veya 'rsvg'
+
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -201,6 +205,24 @@ wfLoadExtension('Moderation');
 wfLoadExtension('ConfirmAccount');
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
+wfLoadExtension( 'ParserFunctions' );
+$wgPFEnableStringFunctions = true;
+wfLoadExtension( 'TemplateStyles' );
+# 1. CSS Değişkenlerine (var(--...)) izin ver
+$wgTemplateStylesAllowCustomProperties = true;
+# 2. Modern özelliklere izin ver
+$wgTemplateStylesAllowedProperties = array_merge( ($wgTemplateStylesAllowedProperties ?? []), [
+    'filter', 'mask-image', 'mask-size', 'mask-repeat', 'inset', 
+    'pointer-events', 'user-select', 'gap', 'animation', 'animation-name',
+    'animation-duration', 'animation-timing-function', 'animation-iteration-count'
+]);
+$wgTemplateStylesAllowedUrls['image'] = [
+    "<^/images/>", // Yerel yollar için
+    "<^https?://" . $_SERVER['HTTP_HOST'] . "/>" // Tam domain için
+];
+$wgTemplateStylesAllowedUrls['svg'] = [ "<^/images/[^?#]*\\.svg(?:[?#]|$)>" ];
+
+
 wfLoadExtension( 'Scribunto' );
 $wgScribuntoDefaultEngine = 'luastandalone';
 
@@ -228,8 +250,9 @@ $wgPluggableAuth_EnableLocalLogin = true;
 
 
 # Auth42: Kullanıcı sayfalarında 42 Intra avatarlarının gösterilmesi için
-// $wgAllowImageTag = true;
+$wgAllowImageTag = true;
 // $wgAllowExternalImagesFrom = [ 'https://cdn.intra.42.fr/' ];
+$wgAllowExternalImages = true;
 
 $wgSessionCacheType = CACHE_DB; // Avoids stale session state across requests.
 

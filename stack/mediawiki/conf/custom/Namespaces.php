@@ -13,6 +13,7 @@ $wgExtraNamespaces[NS_DEV] = "Geliştirme";
 // Alt sayfa destekleri
 $wgNamespacesWithSubpages[NS_REHBER] = true;
 $wgNamespacesWithSubpages[NS_DEV] = true;
+$wgNamespacesWithSubpages[NS_TEMPLATE] = true;
 
 
 $wgNamespacesToBeSearchedDefault = [

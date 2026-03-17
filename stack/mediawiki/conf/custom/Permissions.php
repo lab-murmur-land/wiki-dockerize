@@ -12,6 +12,8 @@ $wgGroupPermissions['*']['autocreateaccount'] = true;
 # Sadece adminler onaylayabilir
 // $wgGroupPermissions['sysop']['createaccount'] = true;
 
+$wgGroupPermissions['sysop']['editinterface'] = true;
+$wgGroupPermissions['sysop']['editsitecss'] = true;
 
 $wgGroupPermissions['sysop']['edit-guides'] = true;
 $wgGroupPermissions['editor']['edit-guides'] = true;
