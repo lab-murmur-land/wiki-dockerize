@@ -170,7 +170,20 @@
                     "reference": "master"
                 }
             }
-        }
+        },
+		{
+			"type": "package",
+			"package": {
+				"name": "starcitizentools/citizen-skin",
+				"version": "v2.3.1", 
+				"type": "mediawiki-skin",
+				"source": {
+					"url": "https://github.com/StarCitizenTools/mediawiki-skins-Citizen.git",
+					"type": "git",
+					"reference": "v2.3.1"
+				}
+			}
+		}
     ],
     "require": {
         "mediawiki/mobile-frontend": "1.45.0",
@@ -184,6 +197,7 @@
 		"mediawiki/pluggable-auth": "1.45.0",
 		"mediawiki/confirm-account": "1.45.0",
 		"mediawiki/approved-revs": "*",
+		"starcitizentools/citizen-skin": "*",
 		"mediawiki/flagged-revs": "1.45.0",
 		"mediawiki/syntax-highlight": "1.45.0",
 		"mediawiki/moderation": "dev-master"

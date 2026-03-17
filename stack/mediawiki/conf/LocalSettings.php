@@ -142,7 +142,8 @@ $wgDiff3 = "/usr/bin/diff3";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-$wgDefaultSkin = "vector-2022";
+// $wgDefaultSkin = "vector-2022";
+$wgDefaultSkin = 'citizen';
 $wgVectorResponsive = true;
 $wgDefaultMobileSkin = 'minerva';
 
@@ -150,6 +151,7 @@ wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
+wfLoadSkin( 'Citizen' );
 
 // Safe loader helpers to avoid fatal errors when optional packages are not present.
 $loadSkinIfPresent = static function ( string $name ) use ( $IP ) : void {
