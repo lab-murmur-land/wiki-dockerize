@@ -18,10 +18,10 @@ export DATA_DIR
 COMPOSE="docker compose -f stack/docker-compose.yml"
 
 maintaince-init-db(){
-	$COMPOSE exec mediawiki /tmp/maintaince.bash init-db $WIKI_ADMIN_USER $WIKI_ADMIN_PASSWORD
+	$COMPOSE exec mediawiki /tmp/scripts/maintaince.bash init-db $WIKI_ADMIN_USER $WIKI_ADMIN_PASSWORD
 }
 maintaince-composer-install(){
-	$COMPOSE exec mediawiki /tmp/maintaince.bash composer-install
+	$COMPOSE exec mediawiki /tmp/scripts/maintaince.bash composer-install
 
 }
 down-volumes(){
@@ -71,10 +71,14 @@ case "$cmd" in
     $COMPOSE exec -it mediawiki bash
     ;;
   wiki_cli)
-    $COMPOSE exec mediawiki /tmp/maintaince.bash "$@"
+    $COMPOSE exec mediawiki /tmp/scripts/maintaince.bash "$@"
     ;;
   restart)
     $COMPOSE down
+    up
+	;;
+  restart-wiki)
+    $COMPOSE down mediawiki
     up
     ;;
   reload)

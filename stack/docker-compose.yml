@@ -17,6 +17,11 @@ services:
       - vendor:/var/www/html/vendor
       - extensions:/var/www/html/extensions
       - composer_cache:/root/.composer/cache
+      - ./mediawiki/conf/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./mediawiki/conf/composer.json:/var/www/html/composer.local.json
+      - ./mediawiki/conf/custom:/var/www/html/custom_settings
+      - ./mediawiki/Auth42:/var/www/html/extensions/Auth42
+      - ./mediawiki/scripts:/tmp/scripts
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service

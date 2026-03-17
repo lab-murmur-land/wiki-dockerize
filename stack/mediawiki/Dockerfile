@@ -14,14 +14,13 @@ RUN apt-get update && apt-get install -y \
 # PHP'nin zip uzantısını aktif et (Hızlı indirme için kritik?)
 RUN docker-php-ext-install zip
 
-RUN chown -R www-data:www-data /var/www/html/images
+RUN chown -R www-data:www-data /var/www/html/images /var/www/html/cache
 
-COPY ./conf/composer.json /var/www/html/composer.local.json
-
-COPY ./scripts/* /tmp/
-COPY Auth42/ /var/www/html/extensions/Auth42/
-COPY ./conf/LocalSettings.php /var/www/html/LocalSettings.php
-COPY ./conf/custom /var/www/html/custom_settings/
+# COPY ./conf/composer.json /var/www/html/composer.local.json
+# COPY ./scripts/* /tmp/
+# COPY Auth42/ /var/www/html/extensions/Auth42/
+# COPY ./conf/LocalSettings.php /var/www/html/LocalSettings.php
+# COPY ./conf/custom /var/www/html/custom_settings/
 
 
 # COPY ./conf/.htaccess /var/www/html/.htaccess

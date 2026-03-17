@@ -205,6 +205,7 @@ wfLoadExtension('ApprovedRevs');
 wfLoadExtension('Moderation');
 wfLoadExtension('ConfirmAccount');
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+wfLoadExtension( 'TemplateData' );
 
 wfLoadExtension( 'ParserFunctions' );
 $wgPFEnableStringFunctions = true;

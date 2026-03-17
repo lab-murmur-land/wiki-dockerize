@@ -225,7 +225,20 @@
 					"reference": "REL1_45"
 				}
 			}
-		}
+		},
+		{
+            "type": "package",
+            "package": {
+                "name": "mediawiki/template-data",
+                "version": "1.45.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-TemplateData.git",
+                    "type": "git",
+                    "reference": "REL1_45"
+                }
+            }
+        }
 	],
 	"provide": {
 		"mediawiki/core": "1.45.0"
@@ -245,6 +258,7 @@
 		"mediawiki/parser-functions": "1.45.0",
 		"mediawiki/template-styles": "1.45.0",
 		"starcitizentools/citizen-skin": "*",
+		"mediawiki/template-data": "1.45.0",
 		"mediawiki/scribunto": "1.45.0",
 		"mediawiki/flagged-revs": "1.45.0",
 		"mediawiki/syntax-highlight": "1.45.0",

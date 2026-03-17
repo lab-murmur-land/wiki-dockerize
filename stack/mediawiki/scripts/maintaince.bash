@@ -18,6 +18,9 @@ run_php(){
 }
 
 case "$cmd" in
+  composer-update)
+	COMPOSER_ALLOW_SUPERUSER=1 composer update --no-dev --no-security-blocking --no-interaction -o
+    ;;
   composer-install)
     COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-security-blocking --no-interaction -o
     cd /var/www/html/extensions/VisualEditor && git submodule update --init --recursive # why not needed in container?
