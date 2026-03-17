@@ -175,7 +175,7 @@
 			"type": "package",
 			"package": {
 				"name": "starcitizentools/citizen-skin",
-				"version": "v2.3.1",
+				"version": "v3.9.0",
 				"type": "mediawiki-skin",
 				"extra": {
 					"installer-name": "Citizen"
@@ -183,11 +183,11 @@
 				"source": {
 					"url": "https://github.com/StarCitizenTools/mediawiki-skins-Citizen.git",
 					"type": "git",
-					"reference": "v2.3.1"
+					"reference": "v3.9.0"
 				}
 			}
 		}
-    ],
+	],
     "require": {
         "mediawiki/mobile-frontend": "1.45.0",
         "mediawiki/minerva-neue-skin": "1.45.0",
