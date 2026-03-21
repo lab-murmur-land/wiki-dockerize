@@ -17,6 +17,7 @@ services:
       - vendor:/var/www/html/vendor
       - extensions:/var/www/html/extensions
       - composer_cache:/root/.composer/cache
+      - ./mediawiki/conf/:/var/www/html/configs/
       - ./mediawiki/conf/LocalSettings.php:/var/www/html/LocalSettings.php
       - ./mediawiki/conf/composer.json:/var/www/html/composer.local.json
       - ./mediawiki/conf/custom:/var/www/html/custom_settings
