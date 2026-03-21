@@ -210,21 +210,14 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'ParserFunctions' );
 $wgPFEnableStringFunctions = true;
 wfLoadExtension( 'TemplateStyles' );
-# 1. CSS Değişkenlerine (var(--...)) izin ver
-$wgTemplateStylesAllowCustomProperties = true;
-# 2. Modern özelliklere izin ver
-$wgTemplateStylesAllowedProperties = array_merge( ($wgTemplateStylesAllowedProperties ?? []), [
-    'filter', 'mask-image', 'mask-size', 'mask-repeat', 'inset', 
-    'pointer-events', 'user-select', 'gap', 'animation', 'animation-name',
-    'animation-duration', 'animation-timing-function', 'animation-iteration-count'
-]);
+
 $wgTemplateStylesAllowedUrls['image'] = [
-    "<^/images/>", // Yerel yollar için
+	"<^/images/>", // Yerel yollar için
     "<^https?://" . $_SERVER['HTTP_HOST'] . "/>" // Tam domain için
 ];
 $wgTemplateStylesAllowedUrls['svg'] = [ "<^/images/[^?#]*\\.svg(?:[?#]|$)>" ];
 
-
+wfLoadExtension( 'TemplateStylesExtender' );
 wfLoadExtension( 'Scribunto' );
 $wgScribuntoDefaultEngine = 'luastandalone';
 

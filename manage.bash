@@ -22,7 +22,6 @@ maintaince-init-db(){
 }
 maintaince-composer-install(){
 	$COMPOSE exec mediawiki /tmp/scripts/maintaince.bash composer-install
-
 }
 down-volumes(){
 	$COMPOSE down --volumes --remove-orphans

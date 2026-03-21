@@ -229,6 +229,22 @@
 		{
             "type": "package",
             "package": {
+                "name": "mediawiki/template-styles-extender",
+                "type": "mediawiki-extension",
+                "version": "1.45.0",
+                "extra": {
+                    "installer-name": "TemplateStylesExtender"
+                },
+                "source": {
+                    "url": "https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+		{
+            "type": "package",
+            "package": {
                 "name": "mediawiki/template-data",
                 "version": "1.45.0",
                 "type": "mediawiki-extension",
@@ -257,6 +273,7 @@
 		"mediawiki/approved-revs": "*",
 		"mediawiki/parser-functions": "1.45.0",
 		"mediawiki/template-styles": "1.45.0",
+		"mediawiki/template-styles-extender": "1.45.0",
 		"starcitizentools/citizen-skin": "*",
 		"mediawiki/template-data": "1.45.0",
 		"mediawiki/scribunto": "1.45.0",
