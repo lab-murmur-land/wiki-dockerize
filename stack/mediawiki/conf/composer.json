@@ -277,6 +277,7 @@
 		"starcitizentools/citizen-skin": "*",
 		"mediawiki/template-data": "1.45.0",
 		"mediawiki/scribunto": "1.45.0",
+		"mediawiki/simple-batch-upload": "^3.0",
 		"mediawiki/flagged-revs": "1.45.0",
 		"mediawiki/syntax-highlight": "1.45.0",
 		"mediawiki/moderation": "dev-master"
