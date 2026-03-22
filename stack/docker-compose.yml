@@ -16,6 +16,7 @@ services:
       - images:/var/www/html/images
       - vendor:/var/www/html/vendor
       - extensions:/var/www/html/extensions
+      - skins:/var/www/html/skins
       - composer_cache:/root/.composer/cache
       - ./mediawiki/conf/:/var/www/html/configs/
       - ./mediawiki/conf/LocalSettings.php:/var/www/html/LocalSettings.php
@@ -75,6 +76,12 @@ volumes:
       type: 'none'
       o: 'bind'
       device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_extensions
+  skins:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${DATA_DIR}/${COMPOSE_PROJECT_NAME}_skins
   composer_cache:
     driver: local
     driver_opts:

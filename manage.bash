@@ -39,6 +39,7 @@ dev_init() {
 	sudo mkdir -p "$DATA_DIR"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_vendor"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_extensions"
+	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_skins"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_images"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_composer_cache"
 	sudo mkdir -p "$DATA_DIR/${COMPOSE_PROJECT_NAME}_db"
