@@ -254,7 +254,20 @@
                     "reference": "REL1_45"
                 }
             }
-        }
+        },
+		{
+			"type": "package",
+			"package": {
+				"name": "mediawiki/category-tree",
+				"version": "1.45.0",
+				"type": "mediawiki-extension",
+				"source": {
+					"url": "https://gerrit.wikimedia.org/r/mediawiki/extensions/CategoryTree",
+					"type": "git",
+					"reference": "REL1_45"
+				}
+			}
+		}
 	],
 	"provide": {
 		"mediawiki/core": "1.45.0"
@@ -278,6 +291,7 @@
 		"mediawiki/template-data": "1.45.0",
 		"mediawiki/scribunto": "1.45.0",
 		"mediawiki/simple-batch-upload": "^3.0",
+		"mediawiki/category-tree": "1.45.0",
 		"mediawiki/flagged-revs": "1.45.0",
 		"mediawiki/syntax-highlight": "1.45.0",
 		"mediawiki/moderation": "dev-master"

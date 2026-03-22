@@ -211,12 +211,8 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'ParserFunctions' );
 $wgPFEnableStringFunctions = true;
 wfLoadExtension( 'TemplateStyles' );
-
-
-
-
-
 wfLoadExtension( 'TemplateStylesExtender' );
+wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Scribunto' );
 $wgScribuntoDefaultEngine = 'luastandalone';
 
