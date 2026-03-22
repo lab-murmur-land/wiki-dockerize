@@ -211,11 +211,9 @@ wfLoadExtension( 'ParserFunctions' );
 $wgPFEnableStringFunctions = true;
 wfLoadExtension( 'TemplateStyles' );
 
-$wgTemplateStylesAllowedUrls['image'] = [
-	"<^/images/>", // Yerel yollar için
-    "<^https?://" . $_SERVER['HTTP_HOST'] . "/>" // Tam domain için
-];
-$wgTemplateStylesAllowedUrls['svg'] = [ "<^/images/[^?#]*\\.svg(?:[?#]|$)>" ];
+
+
+
 
 wfLoadExtension( 'TemplateStylesExtender' );
 wfLoadExtension( 'Scribunto' );
@@ -269,3 +267,4 @@ $wgAutoCreateTempUser['enabled'] = false;
 require_once "$IP/custom_settings/Namespaces.php";
 require_once "$IP/custom_settings/Permissions.php";
 // require_once "$IP/custom_settings/ExtensionSettings.php";
+$wgShowExceptionDetails = true;

@@ -14,6 +14,7 @@ $wgExtraNamespaces[NS_DEV] = "Geliştirme";
 $wgNamespacesWithSubpages[NS_REHBER] = true;
 $wgNamespacesWithSubpages[NS_DEV] = true;
 $wgNamespacesWithSubpages[NS_TEMPLATE] = true;
+$wgNamespacesWithSubpages[NS_MAIN] = true;
 
 
 $wgNamespacesToBeSearchedDefault = [
